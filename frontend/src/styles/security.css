@@ -1,0 +1,45 @@
+/* Password change form */
+.t-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 10px;
+  background: var(--surface-2, #f9fafb);
+}
+
+/* Activity list */
+.t-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.t-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 8px;
+  background: var(--surface, #fff);
+}
+
+.t-activity-item span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.t-activity-item b {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.t-activity-item small {
+  color: var(--ink-muted, #6b7280);
+  font-size: 0.8rem;
+}

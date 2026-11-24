@@ -1,0 +1,88 @@
+/* Module settings panel */
+
+.t-module-form {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line, #e5e7eb);
+}
+
+.t-module-form .t-form-grid {
+  margin-bottom: 1rem;
+}
+
+.t-module-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.t-module-actions .t-btn {
+  min-width: 140px;
+}
+
+/* Setting rows already exist in lecturer.css, but the two icon buttons
+   inside a module row need a tighter layout. */
+.t-setting-row .t-setting-row-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.t-setting-row > button {
+  background: transparent;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink, #1f2937);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.t-setting-row > button:hover {
+  background: var(--surface-2, #f3f4f6);
+  border-color: var(--ink-muted, #cbd5e1);
+}
+
+.t-setting-row > button[aria-label="Delete module"]:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* Empty / loading text inside the modules tab */
+.t-member-empty {
+  font-size: 0.875rem;
+  color: var(--ink-muted, #6b7280);
+  padding: 1rem 0;
+}
+
+.t-error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Optional: nicer module rows on narrow screens */
+@media (max-width: 640px) {
+  .t-setting-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .t-module-actions {
+    flex-direction: column;
+  }
+
+  .t-module-actions .t-btn {
+    width: 100%;
+  }
+}

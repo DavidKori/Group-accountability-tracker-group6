@@ -1,0 +1,330 @@
+/* ─────────────────────────────────────────────────────────────────────
+   Lecturer notifications page
+   ───────────────────────────────────────────────────────────────────── */
+
+/* Summary tabs */
+.t-notif-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.t-notif-summary button {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 1.05rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 12px;
+  background: var(--surface, #fff);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.t-notif-summary button:hover {
+  border-color: #93c5fd;
+  background: #f8fbff;
+}
+
+.t-notif-summary button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.t-notif-summary button b {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink, #1f2937);
+  line-height: 1.1;
+}
+
+.t-notif-summary button span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--ink-muted, #6b7280);
+}
+
+/* Shell + toolbar */
+.t-notif-shell {
+  padding: 0;
+  overflow: hidden;
+}
+
+.t-notif-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line, #e5e7eb);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.t-notif-toolbar .t-search {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 8px;
+  background: var(--surface, #fff);
+}
+
+.t-notif-toolbar .t-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  color: var(--ink, #1f2937);
+  min-width: 0;
+}
+
+.t-notif-type {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 8px;
+  background: var(--surface, #fff);
+  font: inherit;
+  color: var(--ink, #1f2937);
+  min-width: 160px;
+}
+
+/* List */
+.t-notif-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-notif-item {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--line, #e5e7eb);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.t-notif-item:last-child {
+  border-bottom: none;
+}
+
+.t-notif-item:hover {
+  background: var(--surface-2, #f9fafb);
+}
+
+.t-notif-item.unread {
+  background: #f0f7ff;
+}
+
+.t-notif-item.unread:hover {
+  background: #e8f1ff;
+}
+
+.t-notif-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.t-notif-item.unread .t-notif-icon {
+  background: #2563eb;
+  color: #fff;
+}
+
+.t-notif-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.t-notif-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.t-notif-top b {
+  font-size: 0.92rem;
+  color: var(--ink, #1f2937);
+}
+
+.t-notif-top small {
+  font-size: 0.75rem;
+  color: var(--ink-muted, #9ca3af);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.t-notif-body p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft, #4b5563);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.t-notif-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  align-items: center;
+}
+
+.t-notif-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.74rem;
+  color: var(--ink-muted, #6b7280);
+}
+
+/* Row actions */
+.t-notif-actions {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.t-notif-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink-muted, #6b7280);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.t-notif-actions button:hover {
+  background: var(--surface-2, #f3f4f6);
+  border-color: var(--ink-muted, #cbd5e1);
+  color: var(--ink, #1f2937);
+}
+
+.t-notif-actions button[aria-label="Delete notification"]:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* Load more */
+.t-notif-more {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid var(--line, #e5e7eb);
+}
+
+/* Detail modal */
+.t-notif-detail-message {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink, #1f2937);
+  white-space: pre-wrap;
+}
+
+.t-notif-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 10px;
+  background: var(--surface-2, #f9fafb);
+}
+
+.t-notif-detail-meta span {
+  font-size: 0.85rem;
+  color: var(--ink-soft, #4b5563);
+  display: flex;
+  gap: 0.4rem;
+}
+
+.t-notif-detail-meta b {
+  color: var(--ink, #1f2937);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .t-notif-summary {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .t-notif-summary button {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .t-notif-summary button b {
+    font-size: 1.25rem;
+  }
+
+  .t-notif-item {
+    grid-template-columns: 36px 1fr;
+    gap: 0.7rem;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .t-notif-actions {
+    grid-column: 2 / -1;
+    justify-self: flex-end;
+    margin-top: 0.4rem;
+  }
+
+  .t-notif-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .t-notif-detail-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .t-notif-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .t-notif-type {
+    width: 100%;
+  }
+
+  .t-notif-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}
